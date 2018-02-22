@@ -19,5 +19,5 @@ TEST (add , ) {
 }
 
 TEST (add , ) {
-    ASSERT_EQ(6, add(2, 3));
+    ASSERT_EQ(7, add(2, 3));
 }
