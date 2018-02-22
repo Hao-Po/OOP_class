@@ -17,3 +17,7 @@ TEST (add, hihih) {
 TEST (add, test1) {
     ASSERT_EQ(0, add(0, 0));
 }
+
+TEST (add, test2) {
+    ASSERT_EQ(5, add(2, 3));
+}
