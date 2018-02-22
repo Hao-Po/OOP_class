@@ -10,14 +10,14 @@ TEST (add , ) {
     ASSERT_EQ(5, add(2, 3));
 }
 
-TEST (add , ) {
+TEST (add2 , ) {
     ASSERT_EQ(-1, add(0, -1));
 }
 
-TEST (add , ) {
+TEST (add3 , ) {
     ASSERT_EQ(0, add(0, 0));
 }
 
-TEST (add , ) {
+TEST (add4 , ) {
     ASSERT_EQ(7, add(2, 3));
 }
