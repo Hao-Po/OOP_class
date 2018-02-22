@@ -6,18 +6,18 @@ int main(int argc, char** argv) {
     return RUN_ALL_TESTS();
 }
 
-TEST ( , normal) {
-    ASSERT_EQ(5, add(2, 6));
+TEST (add , ) {
+    ASSERT_EQ(5, add(2, 3));
 }
 
-TEST ( , hihih) {
+TEST (add , ) {
     ASSERT_EQ(-1, add(0, -1));
 }
 
-TEST ( , test1) {
+TEST (add , ) {
     ASSERT_EQ(0, add(0, 0));
 }
 
-TEST ( , test2) {
+TEST (add , ) {
     ASSERT_EQ(6, add(2, 3));
 }
