@@ -7,7 +7,7 @@ int main(int argc, char** argv) {
 }
 
 TEST (add , ) {
-    ASSERT_EQ(5, add(2, 3));
+    ASSERT_EQ(6, add(2, 3));
 }
 
 TEST (add2 , ) {
