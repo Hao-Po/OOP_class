@@ -11,5 +11,5 @@ TEST (add, normal) {
 }
 
 TEST (add, hihih) {
-    ASSSERT_EQ(-1, add(0, -1));
+    ASSERT_EQ(-1, add(0, -1));
 }
