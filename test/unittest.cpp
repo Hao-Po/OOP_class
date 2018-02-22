@@ -13,3 +13,7 @@ TEST (add, normal) {
 TEST (add, hihih) {
     ASSERT_EQ(-1, add(0, -1));
 }
+
+TEST (add, test1) {
+    ASSERT_EQ(0, add(0, 0));
+}
