@@ -6,8 +6,8 @@ int main(int argc, char** argv) {
     return RUN_ALL_TESTS();
 }
 
-TEST (add, normal) {
-    ASSERT_EQ(5, add(2, 3));
+TEST (add , normal) {
+    ASSERT_EQ(5, add(2, 6));
 }
 
 TEST (add, hihih) {

@@ -5,9 +5,9 @@ all: ut
 
 ut: $(TEST)/unittest.cpp
 ifeq ($(OS), Windows_NT)
-	g++ $(TEST)/unittest.cpp -O3 -o $(TEST)/unittest.exe -lgtest
+	g++ $(TEST)/unittest.cpp -O3 -o $(TEST)/unittest.exe -lgtest -s
 else
-	g++ $(TEST)/unittest.cpp -O3 -o $(TEST)/unittest.exe -lgtest -lpthread
+	g++ $(TEST)/unittest.cpp -O3 -o $(TEST)/unittest.exe -lgtest -lpthread -s
 endif
 
 clean:
