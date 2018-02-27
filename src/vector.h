@@ -5,6 +5,10 @@
 
 typedef std::pair<double,double> Point;
 
+int add(int a, int b) {
+  return a+b;
+}
+
 double innerProduct (Point a, Point b) {
   return a.first * b.first + a.second * b.second;
 }

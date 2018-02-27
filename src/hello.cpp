@@ -8,5 +8,5 @@ int add(int a, int b) {
 int main(int argc, char **argv) {
   printf("Hello, C!\n");
   int result = add(2,3);
-  assert(5==result);
+  assert(4==result);
 }
