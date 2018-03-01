@@ -8,7 +8,7 @@
 // }
 
 TEST (Vector, add) {
-  ASSERT_EQ(20, add(2,3));
+  ASSERT_EQ(5, add(2,3));
 }
 
 TEST(Vector, InnerProductIllegalDimException) {
