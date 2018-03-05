@@ -2,6 +2,10 @@
 
 ## Week 2:
 
+### Tool
+
+When coding in class, I will use the editor [Atom](https://atom.io), which comes with syntax highlighting, code completion to make coding easy. I will also use the plugin [PlatformIO IDE Terminal](https://atom.io/packages/platformio-ide-terminal) so that we can access a terminal to build programs without leaving Atom.
+
 We are going to solve this problem
 - all code together
 - separate entry point (main), functions, and tests
