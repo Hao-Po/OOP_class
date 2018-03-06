@@ -1,23 +1,13 @@
 # OOP with C++ (and more)
+<<<<<<< HEAD
+#Test
+=======
 
 ## Week 2:
 
-### reading:
+### Tool
 
-- [Inner product, round 1](http://htsicpp.blogspot.tw/2014/08/inner-product-round-1.html)
-
-- [Inner product, round 2: unit tests and basic exception](http://htsicpp.blogspot.tw/2014/08/inner-product-round-2-unit-tests-and.html)
-
-### C++ language & tool
-
-- When coding in class, I will use the editor [Atom](https://atom.io), which comes with syntax highlighting, code completion to make coding easy. I will also use the plugin [PlatformIO IDE Terminal](https://atom.io/packages/platformio-ide-terminal) so that we can access a terminal to build programs without leaving Atom.
-
-- make and makefile
-- exception in c++: why assert from assert.h is not good: forced exit if failed
-
-
-
-### problem solving
+When coding in class, I will use the editor [Atom](https://atom.io), which comes with syntax highlighting, code completion to make coding easy. I will also use the plugin [PlatformIO IDE Terminal](https://atom.io/packages/platformio-ide-terminal) so that we can access a terminal to build programs without leaving Atom.
 
 We are going to solve this problem
 - all code together
@@ -34,6 +24,7 @@ Prompt the user whether to continue or stop.
 
 More detail see [Inner product, round 1](http://htsicpp.blogspot.tw/2014/08/inner-product-round-1.html)
 
+>>>>>>> 5f5e642afc6292652f2ac2fb0dc5eee7c5a74c6c
 ## Week 1
 
 _Incrementally_ from small (tiny) programs to not-so-small programs
@@ -55,6 +46,17 @@ _Incrementally_ from small (tiny) programs to not-so-small programs
   makefile
   readme.md // project info
 ```
+<<<<<<< HEAD
+  - makefile objectives:
+    - maintaining project structure
+    - enabling recompilation when dependent files changes
+    - actions:
+      - compile
+      - link
+      - cleanup
+      - statistics
+  - jenkins/gitlab/googletest
+=======
 - makefile objectives:
   - maintaining project structure
   - enabling recompilation when dependent files changes
@@ -64,5 +66,14 @@ _Incrementally_ from small (tiny) programs to not-so-small programs
     - cleanup
     - statistics
 - jenkins/gitlab/googletest
+>>>>>>> 5f5e642afc6292652f2ac2fb0dc5eee7c5a74c6c
 - Reading and writing [htsi](http://htsicpp.blogspot.tw/):
   - [Introducing "How to solve it: CPP"](http://htsicpp.blogspot.tw/2014/08/introducing-how-to-solve-it-cpp.html)
+  - [Inner product, round 1](http://htsicpp.blogspot.tw/2014/08/inner-product-round-1.html)
+  - [Inner product, round 2: unit tests and basic exception](http://htsicpp.blogspot.tw/2014/08/inner-product-round-2-unit-tests-and.html)
+    - why assert from assert.h is not good: forced exit if failed
+<<<<<<< HEAD
+
+## Week 2:
+=======
+>>>>>>> 5f5e642afc6292652f2ac2fb0dc5eee7c5a74c6c
