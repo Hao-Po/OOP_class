@@ -7,6 +7,10 @@
 //   ASSERT_EQ(3, ip);
 // }
 
+TEST (Vector, add) {
+  ASSERT_EQ(20, add(2,3));
+}
+
 TEST(Vector, InnerProductIllegalDimException) {
   double a[] = {1, 1, 1};
   double b[] = {2, 1};
