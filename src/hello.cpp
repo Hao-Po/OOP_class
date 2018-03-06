@@ -29,8 +29,6 @@ void testDotProduct_3() {
   double v[] = {1,1,1};
   double dp = dotProduct(u, 2, v, 3);
 }
-
-
 int main(int argc, char **argv) {
   printf("Hello, dot product!\n");
 
