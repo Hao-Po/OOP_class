@@ -2,6 +2,7 @@
 #define VECTOR_H
 // #include <assert.h>
 #include <string>
+#include <math.h>
 
 typedef std::pair<double,double> Point;
 
@@ -20,6 +21,36 @@ double innerProduct (double a[], double b[], int dim_a, int dim_b) {
   return ip;
 }
 
+// double * const add(double * const u, double * const v, int di, int d2)
+// {
+//     double sum[di];
+//     int i;
+//
+//     if(di == d2)
+//         for(i = 0; i < di; i++)
+//             sum[i] = u[i] + v[i];
+//     else
+//         throw string("exception");
+//     return sum;
+// }
+
+double length (double v[], int dim) {
+    double sum = 0;
+    for (int i = 0; i < dim; i++)
+        sum += v[i] * v[i];
+    return sqrt(sum);
+}
+
+double angle (double v[], int dim_v, double u[], int dim_u) {
+    double cosin = innerProduct(v, u, dim_v, dim_u) / (length(v, dim_v) * length(u, dim_u));
+    double result = acos(cosin);
+    return result;
+}
+
+double area (double v[], int dim_v, double u[], int dim_u) {
+    double area = 0.5 * length(v, dim_v) * length(u, dim_u) * sin(angle(v, dim_v, u, dim_u));
+    return area;
+}
 
 class Vector {
 public:
