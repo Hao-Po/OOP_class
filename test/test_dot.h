@@ -1,19 +1,21 @@
-void testDotProduct() {
+#include "../src/dot.h"
+
+TEST (DotProduct, first) {
   double u[] = {1,1};
   double v[] = {0,1};
   double dp = dotProduct(u, 2, v, 2);
-  assert(1==dp);
+  ASSERT_EQ(1, dp);
 }
 
-void testDotProduct_2() {
+TEST (DotProduct, second) {
   double u[] = {1,1,0};
   double v[] = {0,1,1};
   double dp = dotProduct(u, 3, v, 3);
-  assert(1==dp);
+  ASSERT_EQ(1, dp);
 }
 
-void testDotProduct_3() {
+TEST (DotProduct, third) {
   double u[] = {1,0};
   double v[] = {1,1,1};
-  double dp = dotProduct(u, 2, v, 3);
+  ASSERT_ANY_THROW(dotProduct(u, 2, v, 3));
 }
