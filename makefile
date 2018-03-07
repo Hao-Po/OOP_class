@@ -1,9 +1,6 @@
-.PHONY: directories clean
+.PHONY: directories clean stat
 
-all: directories bin/hello bin/ut_all
-
-bin/hello: src/hello.cpp
-	g++ -std=c++11 src/hello.cpp -o bin/hello
+all: directories bin/ut_all
 
 bin/ut_all: obj/ut_main.o
 	g++ -o bin/ut_all obj/ut_main.o -lgtest -lpthread
@@ -18,4 +15,4 @@ clean:
 	rm -f bin/* obj/*.o
 
 stat:
-	wc src/*.h src/*.cpp test/*.h test/*.cpp
+	wc src/*.h test/*.h test/*.cpp
