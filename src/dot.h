@@ -17,7 +17,7 @@ double length(double v[],int dim){
 }
 
 double angle(double a[],int dim_a,double b[],int dim_b){
-  if (dim_a != dim_b || dim_a==0){
+  if (dim_a != dim_b || dim_a==0 || dim_a==1){
     throw "undefined";
   }
   double ang=acos(dotProduct(a,dim_a,b,dim_b)/length(a,dim_a)/length(b,dim_b));
@@ -25,7 +25,7 @@ double angle(double a[],int dim_a,double b[],int dim_b){
 }
 
 double area(double a[],int dim_a,double b[],int dim_b){
-  if (dim_a != dim_b || dim_a==0){
+  if (dim_a != dim_b || dim_a==0 || dim_a==1){
     throw "undefined";
   }
   double are=0.5*length(a,dim_a)*length(b,dim_b)*sqrt(1-pow((dotProduct(a,dim_a,b,dim_b)/length(a,dim_a)/length(b,dim_b)),2));
