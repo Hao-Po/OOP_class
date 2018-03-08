@@ -1,3 +1,5 @@
+#include <math.h>
+
 double dotProduct(double a[], int dim_a, double b[], int dim_b) {
   if (dim_a != dim_b)
     throw "undefined";
