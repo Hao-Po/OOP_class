@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-
+#include <math.h>
 #include "test_dot.h"
 
 int main( int argc , char **argv )
