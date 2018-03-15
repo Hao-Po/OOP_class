@@ -5,7 +5,7 @@ all: directories bin/ut_all
 bin/ut_all: obj/ut_main.o
 	g++ -o bin/ut_all obj/ut_main.o -lgtest -lpthread
 
-obj/ut_main.o: test/ut_main.cpp test/test_dot.h src/dot.h
+obj/ut_main.o: test/ut_main.cpp src/vector_io.h test/test_dot.h src/dot.h test/test_string.h
 	g++ -c test/ut_main.cpp -o obj/ut_main.o
 
 directories:
