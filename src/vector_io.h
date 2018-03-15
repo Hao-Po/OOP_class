@@ -6,7 +6,7 @@ double* pullvectorfromstring(std:: string s, int* dim){
   ss >> *dim;
   char ch;
   ss >> ch;
-  double * v = new double(*dim);
+  double * v = new double[*dim];
   for(int i=0;i<*dim;i++){
     ss >> v[i] >> ch ;
   }
