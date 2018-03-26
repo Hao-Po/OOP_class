@@ -1,4 +1,5 @@
 # OOP with C++ (and more)
+<<<<<<< HEAD
 #### Spring, 2018
 #### Prof Y C Cheng
 #### Dept of Computer Science and Information Engineering
@@ -30,6 +31,8 @@ Our plan for the problem of computing inner product
   - understanding iostream objects cin/cout
 
 [**Inner product, round 3: handling I/O**](http://htsicpp.blogspot.tw/2014/08/inner-product-round-3-handling-io.html)
+=======
+>>>>>>> 5c233ab41a741cc204008e9e325edbf9e8d39997
 
 ## Week 2:
 
@@ -46,6 +49,11 @@ Our plan for the problem of computing inner product
 - make and makefile
 - exception in c++: why assert from assert.h is not good: forced exit if failed
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 5c233ab41a741cc204008e9e325edbf9e8d39997
 ### problem solving
 
 We are going to solve this problem
