@@ -5,13 +5,12 @@
 int main(int argc, char ** argv) {
   bool toContinue = true;
   while (toContinue) {
-    double *u, *v;
-    int dim_u, dim_v;
+    Vector *u,*v;
 
     try {
-      u = promptVectorFromUser(dim_u);
-      v = promptVectorFromUser(dim_v);
-      double ip = dotProduct(u, dim_u, v, dim_v);
+      u = promptVectorFromUser();
+      v = promptVectorFromUser();
+      double ip = dotProduct(*u,*v);
       std::cout << "Inner Product is " << ip << std::endl;
     }
     catch (std::string errorMessage) {

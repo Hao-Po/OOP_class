@@ -7,14 +7,15 @@
 #include <cctype>
 using namespace std;
 
-double * pullVectorFromString(std::string s, int * dim) {
+Vector * pullVectorFromString(std::string s) {
   if(s[s.length()-1] != ']'){
     string error("Invalid input!");
     throw error;
   }
   std::stringstream ss(s);
-  ss >> *dim;
-  if((*dim)<=0){
+  int dim;
+  ss >> dim;
+  if(dim<=0){
     string error("Dimension need a positive number!");
     throw error;
   }
@@ -28,34 +29,35 @@ double * pullVectorFromString(std::string s, int * dim) {
     string error("Invalid input!");
     throw error;
   }
-  double *v = new double [*dim];
-  for(int i=0 ; i<*dim ; i++){
+  double *v = new double [dim];
+  for(int i=0 ; i<dim ; i++){
     ss >> v[i] >> ch;
     if(ch != ',' && ch != ']' ){
       string error("Invalid input!");
       throw error;
     }
-    if (ch ==']' && i<*dim-1){
+    if (ch ==']' && i<dim-1){
       string error("Dimension error low!");
       throw error;
     }
 
   }
+  Vector *vec = new Vector(v,dim);
   if(ch != ']'){
     string error("Dimension error!");
     throw error;
   }
-  return v;
+  delete [] v;
+  return vec;
 }
 
-double * promptVectorFromUser(int &dim){
+Vector * promptVectorFromUser(){
     std::string line;
     std::cout << "Input a vector in the following format \"n [c1,...,cn]\": ";
     std::getline(std::cin, line);
     std::cout << "Your input:" << line << std::endl;
-    double * vec = pullVectorFromString(line, &dim);
 
-    return vec;
+    return pullVectorFromString(line);
 }
 
 #endif

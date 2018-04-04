@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-// #include "test_dot.h"
+#include "test_dot.h"
 #include "test_string.h"
 
 int main( int argc , char **argv )
