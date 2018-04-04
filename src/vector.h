@@ -31,10 +31,10 @@ public:
     return _comp[index-1];
   }
 
-  double length(Vector &u){
+  double length(){
     double len=0;
-    for(int i=1;i<=u.dim();i++){
-      len += u.at(i)*u.at(i);
+    for(int i=1;i<=_dim;i++){
+      len += _comp[i-1]*_comp[i-1];
     }
     return sqrt(len);
   }
@@ -58,7 +58,7 @@ double angle(Vector &u, Vector &v){
   if (u.dim() != v.dim() || u.dim()==0){
     throw "Dimension error";
   }
-  double ang=acos(dotProduct(u,v)/u.length(u)/v.length(v));
+  double ang=acos(dotProduct(u,v)/u.length()/v.length());
   return ang;
 }
 
@@ -66,7 +66,7 @@ double area(Vector &u, Vector &v){
   if (u.dim() != v.dim() || u.dim()==0){
     throw "Dimension error";
   }
-  double are=0.5*u.length(u)*v.length(v)*sqrt(1-pow((dotProduct(u,v)/u.length(u)/v.length(v)),2));
+  double are=0.5*u.length()*v.length()*sqrt(1-pow((dotProduct(u,v)/u.length()/v.length()),2));
   return are;
 }
 
