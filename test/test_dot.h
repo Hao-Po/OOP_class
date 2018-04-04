@@ -1,4 +1,5 @@
 #include "../src/dot.h"
+#include "../src/vector.h"
 
 TEST(DotProduct, Vectorfirst){
   double u[] = {1,1};
