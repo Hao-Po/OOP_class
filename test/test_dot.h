@@ -1,4 +1,3 @@
-#include "../src/dot.h"
 #include "../src/vector.h"
 
 TEST(DotProduct, Vectorfirst){

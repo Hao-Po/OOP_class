@@ -16,15 +16,4 @@
 //   return answer;
 // }
 
-double dotProduct(Vector &u,Vector &v){
-  if(u.dim() != v.dim()){
-    throw std::string ("Dimension error!");
-  }
-  double answer=0;
-  for(int i=1;i<=u.dim();i++){
-    answer += u.at(i)*v.at(i);
-  }
-  return answer;
-}
-
 #endif
