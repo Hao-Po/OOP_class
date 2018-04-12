@@ -11,6 +11,11 @@ public:
     }
   }
 
+  Vector(){
+    _comp = nullptr;
+    _dim = -1;
+  }
+
   Vector(Vector &v){
     _dim = v._dim;
     _comp = new double [_dim];
