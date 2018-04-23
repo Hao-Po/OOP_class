@@ -44,6 +44,19 @@ public:
     return sqrt(len);
   }
 
+  Vector & operator=(Vector &u){
+    if(_comp){
+      delete [] _comp;
+    }
+    _comp = new double [u._dim];
+    _dim = u._dim;
+    for(int i=0;i<u._dim;++i){
+      _comp[i] = u._comp[i];
+    }
+
+    return *this;
+  }
+
   double *_comp;
   int _dim;
 };
@@ -80,12 +93,34 @@ Vector *add(Vector &u, Vector &v){
     throw "Dimension error";
   }
   double *temp = new double [u.dim()];
-  for(int i=1 ; i<=u.dim() ; i++){
+  for(int i=1;i<=u.dim();i++){
     temp[i-1] = u.at(i)+v.at(i);
   }
   Vector *sum = new Vector(temp,u.dim());
   delete [] temp;
   return sum;
+}
+
+Vector *operator-(Vector &u ,Vector &v){
+  if (u.dim() != v.dim() || u.dim()==0){
+    throw "Dimension error";
+  }
+  double *temp = new double [u.dim()];
+  for(int i=1;i<=u.dim();i++){
+    temp[i-1] = u.at(i)-v.at(i);
+  }
+  Vector *sum = new Vector(temp,u.dim());
+  delete [] temp;
+  return sum;
+}
+
+double triangleArea(Vector &a ,Vector &b ,Vector &c){
+  double lengA = (b-a)->length();
+  double lengB = (c-b)->length();
+  double lengC = (a-c)->length();
+  double S = (lengA+lengB+lengC)/2;
+  double arc = sqrt(S*(S-lengA)*(S-lengB)*(S-lengC));
+  return arc;
 }
 
 #endif
