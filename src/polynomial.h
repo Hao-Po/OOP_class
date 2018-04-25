@@ -59,16 +59,18 @@ public:
   }
 
   void multiplyByTerm(Term t){
-    // if(t.coefficient() == 0){
-    //   for(int i=0;i<_ts_size;i++){
-    //     _ts[i] = _ts[i]*t;
-    //   }
-    //   _degree = _degree*0;
-    // }
-    for(int i=0;i<_ts_size;i++){
-      _ts[i] = _ts[i]*t;
+    if(t.coefficient() == 0){
+      for(int i=0;i<_ts_size;i++){
+        _ts[i] = _ts[i]*t;
+      }
+      _degree = 0;
     }
-    _degree = _degree+t.exponent();
+    else{
+      for(int i=0;i<_ts_size;i++){
+        _ts[i] = _ts[i]*t;
+      }
+      _degree = _degree+t.exponent();
+    }
   }
 private:
   int _degree;
@@ -78,7 +80,7 @@ private:
 Polynomial operator +(const Polynomial &p ,const Polynomial &q){
   if(p.degreeOfPolynomial() > q.degreeOfPolynomial()){
     for(int i=0;i<p.degreeOfPolynomial();i++){
-    
+
     }
   }
 }

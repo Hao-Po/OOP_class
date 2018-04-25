@@ -64,6 +64,6 @@ TEST(polynomial,polynomialMultipleByZero){
   Term ts[3] = {a,b,c};
   Polynomial p(ts,3,4);
   p.multiplyByTerm(d);
-  ASSERT_EQ(8,p.degreeOfPolynomial());
+  ASSERT_EQ(0,p.degreeOfPolynomial());
 }
 #endif
