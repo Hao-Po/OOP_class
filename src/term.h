@@ -33,8 +33,14 @@ public:
   Term operator *(Term const &t) const{
     double temp_coef;
     int temp_emp;
-    temp_coef = this->_coefficient*t._coefficient;
-    temp_emp = this->_exponent+t._exponent;
+    if(t.coefficient() == 0){
+      temp_coef = 0;
+      temp_emp = 0;
+    }
+    else{
+      temp_coef = this->_coefficient*t._coefficient;
+      temp_emp = this->_exponent+t._exponent;
+    }
     Term multiAns(temp_coef,temp_emp);
     return multiAns;
   }

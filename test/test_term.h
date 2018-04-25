@@ -53,6 +53,15 @@ TEST(term, multiplyThree){
   ASSERT_EQ(2,c.exponent());
 }
 
+TEST(term, multiplyFour){
+  Term a(5,2);
+  Term b(0,0);
+  Term c;
+  c = a*b;
+  ASSERT_EQ(0,c.coefficient());
+  ASSERT_EQ(0,c.exponent());
+}
+
 TEST(term, isZeroTrue){
   Term a;
   Term b(0,8);
