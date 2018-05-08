@@ -1,9 +1,16 @@
-.PHONY: directories clean stat
+.PHONY: directories clean
+CC=g++
+CFLAGS=-std=c++11
+LIBS=-lgtest -lpthread
+OBJ=obj
+BIN=bin
+SRC=src
+TEST=test
 
-all: directories bin/ut_all bin/dot_product
+all: directories $(BIN)/ut_all
 
-bin/dot_product: src/user_main.cpp src/vector_io.h src/dot.h
-	g++ -std=c++11 -o bin/dot_product src/user_main.cpp
+$(BIN)/ut_all: $(OBJ)/ut_main.o
+	$(CC) $(CFLAGS) -o $@ $(OBJ)/ut_main.o $(LIBS)
 
 bin/ut_all: obj/ut_main.o
 	g++ -std=c++11 -o bin/ut_all obj/ut_main.o -lgtest -lpthread
@@ -17,7 +24,7 @@ directories:
 	mkdir -p bin obj
 
 clean:
-	rm -f bin/* obj/*.o
+	rm -rf $(OBJ) $(BIN)
 
 stat:
-	wc src/*.h test/*.h test/*.cpp
+	wc $(SRC)/*.h $(SRC)/*.cpp $(TEST)/*.h $(TEST)/*.cpp

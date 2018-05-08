@@ -21,7 +21,7 @@ public:
     return _exponent;
   }
 
-  bool operator ==(Term  const &t) const{
+  bool operator ==(Term const &t) const{
     if(this->_coefficient == t._coefficient && this->_exponent == t._exponent){
       return 1;
     }
