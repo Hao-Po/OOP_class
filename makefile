@@ -1,16 +1,6 @@
 .PHONY: directories clean
-CC=g++
-CFLAGS=-std=c++11
-LIBS=-lgtest -lpthread
-OBJ=obj
-BIN=bin
-SRC=src
-TEST=test
 
-all: directories $(BIN)/ut_all
-
-$(BIN)/ut_all: $(OBJ)/ut_main.o
-	$(CC) $(CFLAGS) -o $@ $(OBJ)/ut_main.o $(LIBS)
+all: directories bin/ut_all
 
 bin/ut_all: obj/ut_main.o
 	g++ -std=c++11 -o bin/ut_all obj/ut_main.o -lgtest -lpthread
@@ -24,7 +14,7 @@ directories:
 	mkdir -p bin obj
 
 clean:
-	rm -rf $(OBJ) $(BIN)
+	rm -rf obj/*.o bin/*
 
 stat:
-	wc $(SRC)/*.h $(SRC)/*.cpp $(TEST)/*.h $(TEST)/*.cpp
+	wc src/*.h src/*.cpp test/*.h test/*.cpp

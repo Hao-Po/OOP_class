@@ -84,7 +84,7 @@ TEST(polynomial,polynomialOperatorPlusOne){
 
 TEST(polynomial,polynomialOperatorPlusTwo){
   Term p1(1,2);
-  Term p2(2,3);
+  Term p2(-2,3);
   Term p3(3,4);
   Term q1(1,2);
   Term q2(2,3);
@@ -95,5 +95,8 @@ TEST(polynomial,polynomialOperatorPlusTwo){
   Polynomial q(ts2,3,6);
   p = p+q;
   ASSERT_EQ(6,p.degreeOfPolynomial());
+  ASSERT_EQ(0,p.term(3).coefficient());
+  ASSERT_EQ(3,p.term(4).coefficient());
+  ASSERT_EQ(3,p.term(6).coefficient());
 }
 #endif

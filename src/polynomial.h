@@ -79,7 +79,7 @@ private:
 };
 Polynomial operator +(const Polynomial &p ,const Polynomial &q){
   if(p.degreeOfPolynomial()>=q.degreeOfPolynomial()){
-    Term ts[p.degreeOfPolynomial()];
+    Term ts[p.degreeOfPolynomial()+1];
     for(int i=0;i<=p.degreeOfPolynomial();i++){
        Term tempP = p.term(i);
        Term tempQ = q.term(i);
@@ -87,11 +87,11 @@ Polynomial operator +(const Polynomial &p ,const Polynomial &q){
        Term tempPlus(coef,i);
        ts[i] = tempPlus;
     }
-    Polynomial plus(ts,p.degreeOfPolynomial(),p.degreeOfPolynomial());
+    Polynomial plus(ts,p.degreeOfPolynomial()+1,p.degreeOfPolynomial());
     return plus;
   }
   else{
-    Term ts[q.degreeOfPolynomial()];
+    Term ts[q.degreeOfPolynomial()+1];
     for(int i=0;i<=q.degreeOfPolynomial();i++){
        Term tempP = p.term(i);
        Term tempQ = q.term(i);
@@ -99,7 +99,7 @@ Polynomial operator +(const Polynomial &p ,const Polynomial &q){
        Term tempPlus(coef,i);
        ts[i] = tempPlus;
     }
-    Polynomial plus(ts,q.degreeOfPolynomial(),q.degreeOfPolynomial());
+    Polynomial plus(ts,q.degreeOfPolynomial()+1,q.degreeOfPolynomial());
     return plus;
   }
 
