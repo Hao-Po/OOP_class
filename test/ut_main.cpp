@@ -5,6 +5,10 @@
 #include "test_fraction.h"
 #include "test_vector.h"
 #include "test_polygon.h"
+#include "test_bubbleSort.h"
+#include "test_term.h"
+#include "test_polynomial.h"
+
 
 int main( int argc , char **argv )
 {
