@@ -25,8 +25,16 @@ public:
   }
 
   Term operator *(Term const &t) const{
-    double temp_coef = this->_coefficient*t._coefficient;
-    int temp_exp = this->_exponent+t._exponent;
+    double temp_coef;
+    int temp_exp;
+    if(t.coefficient() == 0){
+      temp_coef = 0;
+      temp_exp = 0;
+    }
+    else{
+      temp_coef = this->_coefficient*t._coefficient;
+      temp_exp = this->_exponent+t._exponent;
+    }
     return Term (temp_coef,temp_exp);
   }
 
