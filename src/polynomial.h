@@ -81,9 +81,7 @@ Polynomial operator +(const Polynomial &p ,const Polynomial &q){
     int degree = std::max(p.degreeOfPolynomial(),q.degreeOfPolynomial());
     Term ts[degree+1];
     for(int i=0;i<=degree;i++){
-       Term tempP = p.term(i);
-       Term tempQ = q.term(i);
-       double coef = tempP.coefficient() + tempQ.coefficient();
+       double coef = p.term(i).coefficient() + q.term(i).coefficient();
        Term tempPlus(coef,i);
        ts[i] = tempPlus;
     }

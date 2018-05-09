@@ -59,7 +59,6 @@ TEST(term, multiplyFour){
   Term c;
   c = a*b;
   ASSERT_EQ(0,c.coefficient());
-  ASSERT_EQ(0,c.exponent());
 }
 
 TEST(term, isZeroTrue){

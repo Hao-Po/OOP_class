@@ -25,17 +25,9 @@ public:
   }
 
   Term operator *(Term const &t) const{
-    double temp_coef;
-    int temp_emp;
-    if(t.coefficient() == 0){
-      temp_coef = 0;
-      temp_emp = 0;
-    }
-    else{
-      temp_coef = this->_coefficient*t._coefficient;
-      temp_emp = this->_exponent+t._exponent;
-    }
-    return Term (temp_coef,temp_emp);
+    double temp_coef = this->_coefficient*t._coefficient;
+    int temp_exp = this->_exponent+t._exponent;
+    return Term (temp_coef,temp_exp);
   }
 
   bool isZero() const{
