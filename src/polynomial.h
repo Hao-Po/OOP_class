@@ -51,8 +51,7 @@ public:
         return _ts[i];
       }
     }
-    Term a(0,degree);
-    return a;
+    return Term (0,degree);
   }
 
   int degreeOfPolynomial() const{
@@ -88,7 +87,6 @@ Polynomial operator +(const Polynomial &p ,const Polynomial &q){
        Term tempPlus(coef,i);
        ts[i] = tempPlus;
     }
-    Polynomial plus(ts,degree+1,degree);
-    return plus;
+    return Polynomial (ts,degree+1,degree);
 }
 #endif
