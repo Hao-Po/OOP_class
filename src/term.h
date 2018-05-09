@@ -27,7 +27,7 @@ public:
   Term operator *(Term const &t) const{
     double temp_coef;
     int temp_exp;
-    if(t.coefficient() == 0){
+    if(this->_coefficient == 0 || t.coefficient() == 0){
       temp_coef = 0;
       temp_exp = 0;
     }
