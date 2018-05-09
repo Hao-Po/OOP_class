@@ -1,6 +1,7 @@
 #ifndef POLYNOMIAL_H
 #define POLYNOMIAL_H
 #include "./term.h"
+#include <algorithm>
 class Polynomial {
 public:
   Polynomial(Term * const ts ,int ts_size ,int degree){
@@ -78,30 +79,16 @@ private:
   Term * _ts;
 };
 Polynomial operator +(const Polynomial &p ,const Polynomial &q){
-  if(p.degreeOfPolynomial()>=q.degreeOfPolynomial()){
-    Term ts[p.degreeOfPolynomial()+1];
-    for(int i=0;i<=p.degreeOfPolynomial();i++){
+    int degree = std::max(p.degreeOfPolynomial(),q.degreeOfPolynomial());
+    Term ts[degree+1];
+    for(int i=0;i<=degree;i++){
        Term tempP = p.term(i);
        Term tempQ = q.term(i);
        double coef = tempP.coefficient() + tempQ.coefficient();
        Term tempPlus(coef,i);
        ts[i] = tempPlus;
     }
-    Polynomial plus(ts,p.degreeOfPolynomial()+1,p.degreeOfPolynomial());
+    Polynomial plus(ts,degree+1,degree);
     return plus;
-  }
-  else{
-    Term ts[q.degreeOfPolynomial()+1];
-    for(int i=0;i<=q.degreeOfPolynomial();i++){
-       Term tempP = p.term(i);
-       Term tempQ = q.term(i);
-       double coef = tempP.coefficient() + tempQ.coefficient();
-       Term tempPlus(coef,i);
-       ts[i] = tempPlus;
-    }
-    Polynomial plus(ts,q.degreeOfPolynomial()+1,q.degreeOfPolynomial());
-    return plus;
-  }
-
 }
 #endif

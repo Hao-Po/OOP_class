@@ -41,8 +41,7 @@ public:
       temp_coef = this->_coefficient*t._coefficient;
       temp_emp = this->_exponent+t._exponent;
     }
-    Term multiAns(temp_coef,temp_emp);
-    return multiAns;
+    return Term (temp_coef,temp_emp);
   }
 
   bool isZero() const{
