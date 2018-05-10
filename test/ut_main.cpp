@@ -8,6 +8,7 @@
 #include "test_bubbleSort.h"
 #include "test_term.h"
 #include "test_polynomial.h"
+#include "test_template.h"
 
 
 int main( int argc , char **argv )

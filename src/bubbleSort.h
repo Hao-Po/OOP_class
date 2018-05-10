@@ -1,13 +1,6 @@
 #ifndef BUBBLESORT_H
 #define BUBBLESORT_H
-
-template<typename Autotype>
-void change(Autotype &a, Autotype &b){
-  Autotype temp;
-  temp = a;
-  a = b;
-  b = temp;
-}
+#include "./template.h"
 
 template<typename Autotype>
 bool LessThan(Autotype a, Autotype b){
