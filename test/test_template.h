@@ -79,11 +79,19 @@ TEST(templateTest, reverseTestString){
 TEST(templateTest, deepCopyInt){
   int a[] = {1,2,3,4,5};
   ASSERT_EQ(1,*deepCopy<int>(a,5));
+  ASSERT_EQ(2,*deepCopy<int>(a,5)+1);
+  ASSERT_EQ(3,*deepCopy<int>(a,5)+2);
+  ASSERT_EQ(4,*deepCopy<int>(a,5)+3);
+  ASSERT_EQ(5,*deepCopy<int>(a,5)+4);
 }
 
 TEST(templateTest, deepCopyDouble){
   double a[] = {1.1,2.2,3.3,4.4,5.5};
   ASSERT_EQ(1.1,*deepCopy<double>(a,5));
+  ASSERT_EQ(2.2,*deepCopy<double>(a,5)+1);
+  ASSERT_EQ(3.3,*deepCopy<double>(a,5)+2);
+  ASSERT_EQ(4.4,*deepCopy<double>(a,5)+3);
+  ASSERT_EQ(5.5,*deepCopy<double>(a,5)+4);
 }
 
 TEST(templateTest, deepCopyString){
