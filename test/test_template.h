@@ -78,16 +78,30 @@ TEST(templateTest, reverseTestString){
 
 TEST(templateTest, deepCopyInt){
   int a[] = {1,2,3,4,5};
-  ASSERT_EQ(1,*deepCopy<int>(a,5));;
+  int *p = deepCopy<int>(a,5);
+  ASSERT_EQ(1,p[0]);
+  ASSERT_EQ(2,p[1]);
+  ASSERT_EQ(3,p[2]);
+  ASSERT_EQ(4,p[3]);
+  ASSERT_EQ(5,p[4]);
 }
 
 TEST(templateTest, deepCopyDouble){
   double a[] = {1.1,2.2,3.3,4.4,5.5};
-  ASSERT_EQ(1.1,*deepCopy<double>(a,5));
+  double *p = deepCopy<double>(a,5);
+  ASSERT_EQ(1.1,p[0]);
+  ASSERT_EQ(2.2,p[1]);
+  ASSERT_EQ(3.3,p[2]);
+  ASSERT_EQ(4.4,p[3]);
+  ASSERT_EQ(5.5,p[4]);
 }
 
 TEST(templateTest, deepCopyString){
   std::string s[] = {"Apple","Banana","Orange","Melon"};
-  ASSERT_EQ("Apple",*deepCopy<std::string>(s,4));
+  std::string *p = deepCopy<std::string>(s,4);
+  ASSERT_EQ("Apple",p[0]);
+  ASSERT_EQ("Banana",p[1]);
+  ASSERT_EQ("Orange",p[2]);
+  ASSERT_EQ("Melon",p[3]);
 }
 #endif
