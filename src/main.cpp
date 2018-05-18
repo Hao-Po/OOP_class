@@ -3,9 +3,7 @@
 #include <string>
 #include "./vector_io.h"
 #include "./vector.h"
-#include "./dot.h"
 #include "./polygon.h"
-#include "./bubblesort.h"
 using namespace std;
 
 int main(int argc,char* argv[]){
@@ -20,12 +18,7 @@ int main(int argc,char* argv[]){
       file >> s[i];
       v[i] = *makeVectorFromString(s[i]);
     }
-    Vector O = centroid(v,numberOfVertices);
-    Vector R = v[0] - O;
-    bubbleSort(v,v+numberOfVertices,
-      [&](Vector u,Vector v){return angle(R,u-O)<angle(R,v-O);}
-    );
-    Polygon p(v,numberOfVertices);
+    Polygon p = createPolygon(v,numberOfVertices);
     cout << "Length of polygon is:" << p.length() << endl
          << "Area of polygon is:" << p.area() << endl;
 

@@ -103,6 +103,27 @@ TEST(mainfunction, bubblesort){
   ASSERT_EQ(4,vertices[3].at(2));
 }
 
+TEST(mainfunction, createPolygon){
+  double v1[] = {0,0};
+  double v2[] = {3,0};
+  double v3[] = {3,4};
+  double v4[] = {0,4};
+  Vector A(v1,2);
+  Vector B(v2,2);
+  Vector C(v3,2);
+  Vector D(v4,2);
+  Vector vertices[] = {A,B,C,D};
+  Polygon p = createPolygon(vertices,4);
+  ASSERT_EQ(0,p.vertex(1).at(1));
+  ASSERT_EQ(0,p.vertex(1).at(2));
+  ASSERT_EQ(3,p.vertex(2).at(1));
+  ASSERT_EQ(0,p.vertex(2).at(2));
+  ASSERT_EQ(3,p.vertex(3).at(1));
+  ASSERT_EQ(4,p.vertex(3).at(2));
+  ASSERT_EQ(0,p.vertex(4).at(1));
+  ASSERT_EQ(4,p.vertex(4).at(2));
+}
+
 TEST(mainfunction, lengthAndAreaOfPolygon){
   double v1[] = {0,0};
   double v2[] = {3,4};

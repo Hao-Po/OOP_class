@@ -1,7 +1,8 @@
 #ifndef POLYGON_H
 #define POLYGON_H
+#include "./dot.h"
 #include "./vector.h"
-
+#include "./bubblesort.h"
 class Polygon{
 public:
   Polygon(Vector vertices [], int numberOfVertices){
@@ -66,4 +67,13 @@ private:
   Vector * _vertices;
   int _numberOfVertices;
 };
+
+Polygon createPolygon(Vector vertices[],int size){
+  Vector O = centroid(vertices,size);
+  Vector R = vertices[0] - O;
+  bubbleSort(vertices,vertices+size,
+    [&](Vector u,Vector v){return angle(R,u-O)>angle(R,v-O);}
+  );
+  return Polygon (vertices,size);
+}
 #endif
