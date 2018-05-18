@@ -1,11 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "../src/vector_io.h"
-#include "../src/vector.h"
-#include "../src/dot.h"
-#include "../src/polygon.h"
-#include "../src/bubblesort.h"
+#include "./vector_io.h"
+#include "./vector.h"
+#include "./dot.h"
+#include "./polygon.h"
+#include "./bubblesort.h"
 using namespace std;
 
 int main(int argc,char* argv[]){
