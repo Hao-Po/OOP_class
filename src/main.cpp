@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 #include "./vector_io.h"
 #include "./vector.h"
 #include "./polygon.h"
@@ -19,8 +20,8 @@ int main(int argc,char* argv[]){
       v[i] = *makeVectorFromString(s[i]);
     }
     Polygon p = createPolygon(v,numberOfVertices);
-    cout << "Length of polygon is:" << p.length() << endl
-         << "Area of polygon is:" << p.area() << endl;
+    cout << "Length of polygon is: " << fixed << setprecision(2) << p.length() << endl
+         << "Area of polygon is: " << p.area() << endl;
 
     file.close();
   }
