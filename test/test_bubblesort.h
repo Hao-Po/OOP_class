@@ -1,7 +1,7 @@
-#include "../src/bubbleSort.h"
+#include "../src/bubblesort.h"
 #include "../src/template.h"
 
-TEST(bubbleSort, integerAscending){
+TEST(bubblesort, integerAscending){
   int a[] = {2,3,1,4,5};
   bubbleSort(a,a+5,GreaterThan<int>);
   ASSERT_EQ(1,a[0]);
@@ -9,7 +9,7 @@ TEST(bubbleSort, integerAscending){
   ASSERT_EQ(5,a[4]);
 }
 
-TEST(bubbleSort, _float){
+TEST(bubblesort, _float){
   double a[] = {2.1,3.1,1.1,4.1,5.1};
   bubbleSort(a,a+5,GreaterThan<double>);
   ASSERT_EQ(1.1,a[0]);

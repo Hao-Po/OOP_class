@@ -1,10 +1,10 @@
 #ifndef VECTORIO_H
 #define VECTORIO_H
-
 #include <sstream>
 #include <string>
 #include <iostream>
 #include <cctype>
+#include "./vector.h"
 using namespace std;
 
 Vector * pullVectorFromString(std::string s) {
@@ -58,6 +58,19 @@ Vector * promptVectorFromUser(){
     std::cout << "Your input:" << line << std::endl;
 
     return pullVectorFromString(line);
-}
+  }
+
+  Vector * makeVectorFromString(std::string s){
+    std::stringstream ss(s);
+    char ch;
+    ss >> ch;
+    double *v = new double [2];
+    for(int i=0 ; i<2 ; i++){
+      ss >> v[i] >> ch;
+    }
+    Vector *vec = new Vector(v,2);
+    delete [] v;
+    return vec;
+  }
 
 #endif

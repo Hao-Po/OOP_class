@@ -1,6 +1,7 @@
 #ifndef POLYGON_H
 #define POLYGON_H
 #include "./vector.h"
+
 class Polygon{
 public:
   Polygon(Vector vertices [], int numberOfVertices){
@@ -50,6 +51,15 @@ public:
       arc += triangleArea(_vertices[0],_vertices[i+1],_vertices[i+2]);
     }
     return arc;
+  }
+
+  double length(){
+    double len=0;
+    for(int i=1;i<_numberOfVertices;i++){
+      len += (vertex(i+1)-vertex(i)).length();
+    }
+    len += (vertex(1)-vertex(_numberOfVertices)).length();
+    return len;
   }
 
 private:

@@ -12,7 +12,7 @@ TEST (string, string) {
 
 TEST (string, pullVectorFromString) {
   std::string s = "            2 [1,2]";
-  // ASSERT_EQ(2, pullVectorFromString(s)->dim());
+  ASSERT_EQ(2, pullVectorFromString(s)->dim());
   ASSERT_NEAR(1, pullVectorFromString(s)->at(1), 0.001);
   ASSERT_NEAR(2, pullVectorFromString(s)->at(2), 0.001);
 }

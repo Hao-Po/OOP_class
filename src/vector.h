@@ -1,9 +1,10 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 #include <math.h>
+
 class Vector{
 public:
-  Vector(double *a, int dim){
+  Vector(double * a, int dim){
     _dim = dim;
     _comp = new double [_dim];
     for(int i=0;i<_dim;++i){
@@ -16,7 +17,7 @@ public:
     _dim = -1;
   }
 
-  Vector(Vector &v){
+  Vector(Vector const &v){
     _dim = v._dim;
     _comp = new double [_dim];
     for(int i=0;i<_dim;i++){
@@ -28,15 +29,15 @@ public:
     delete [] _comp;
   }//destructor
 
-  int dim(){
+  int dim() const {
     return _dim;
   }
 
-  double at(int index){
+  double at(int index) const {
     return _comp[index-1];
   }
 
-  double length(){
+  double length() const{
     double len=0;
     for(int i=1;i<=_dim;i++){
       len += _comp[i-1]*_comp[i-1];
@@ -61,7 +62,7 @@ public:
   int _dim;
 };
 
-double dotProduct(Vector &u,Vector &v){
+double dotProduct(Vector const &u,Vector const &v){
   if(u.dim() != v.dim()){
     throw std::string ("Dimension error!");
   }
@@ -72,12 +73,20 @@ double dotProduct(Vector &u,Vector &v){
   return answer;
 }
 
-double angle(Vector &u, Vector &v){
+bool pointingOut(Vector const & u, Vector const & v){
+  return u.at(1)*v.at(2)-u.at(2)*v.at(1)>=0;
+}
+
+double angle(Vector const  &u, Vector const &v){
   if (u.dim() != v.dim() || u.dim()==0){
     throw "Dimension error";
   }
-  double ang=acos(dotProduct(u,v)/u.length()/v.length());
-  return ang;
+  if(pointingOut(u,v)){
+    return acos(dotProduct(u,v)/u.length()/v.length());
+  }
+  else{
+    return 2*M_PI-acos(dotProduct(u,v)/u.length()/v.length());
+  }
 }
 
 double area(Vector &u, Vector &v){
@@ -101,23 +110,19 @@ Vector *add(Vector &u, Vector &v){
   return sum;
 }
 
-Vector *operator-(Vector &u ,Vector &v){
-  if (u.dim() != v.dim() || u.dim()==0){
-    throw "Dimension error";
+Vector operator-(Vector const &u, Vector const &v){
+  double temp[u.dim()];
+  for(int i=0;i<u.dim();i++){
+    temp[i] = u.at(i+1)-v.at(i+1);
   }
-  double *temp = new double [u.dim()];
-  for(int i=1;i<=u.dim();i++){
-    temp[i-1] = u.at(i)-v.at(i);
-  }
-  Vector *sum = new Vector(temp,u.dim());
-  delete [] temp;
-  return sum;
+
+  return Vector (temp,u.dim());
 }
 
 double triangleArea(Vector &a ,Vector &b ,Vector &c){
-  double lengA = (b-a)->length();
-  double lengB = (c-b)->length();
-  double lengC = (a-c)->length();
+  double lengA = (b-a).length();
+  double lengB = (c-b).length();
+  double lengC = (a-c).length();
   double S = (lengA+lengB+lengC)/2;
   double arc = sqrt(S*(S-lengA)*(S-lengB)*(S-lengC));
   return arc;

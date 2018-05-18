@@ -4,16 +4,14 @@
 #include "./vector.h"
 #include <math.h>
 
-// double dotProduct(double a[], int dim_a, double b[], int dim_b) {
-//   if (dim_a != dim_b){
-//     std::string error("undifined");
-//     throw error;
-//   }
-//   double answer = 0;
-//   for (int i=0; i<dim_a; i++) {
-//     answer += a[i]*b[i];
-//   }
-//   return answer;
-// }
+Vector centroid(Vector vertices[], int size){
+  double x=0,y=0;
+  for(int i=0;i<size;i++){
+    x += vertices[i].at(1);
+    y += vertices[i].at(2);
+  }
+  double temp[] = {x/size,y/size};
+  return Vector (temp,2);
+}
 
 #endif
