@@ -143,4 +143,11 @@ TEST(mainfunction, lengthAndAreaOfPolygon){
   ASSERT_EQ(12,p.area());
   ASSERT_EQ(14,p.length());
 }
+
+TEST(mainfunction, setprecision){
+  double x=1.2235;
+  double y=2;
+  std::cout << fixed << setprecision(2) << x << endl;
+  std::cout << y << endl;
+}
 #endif
