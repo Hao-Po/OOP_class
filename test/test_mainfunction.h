@@ -8,9 +8,16 @@
 #include "../src/polygon.h"
 #include "../src/bubblesort.h"
 TEST(mainfunction, fileOpen){
-  fstream file;
-  file.open("test/test.txt");
+  fstream file("test/test.txt");
   ASSERT_EQ(1,file.is_open());
+  file.close();
+}
+
+TEST(mainfunction, getline){
+  fstream file("test/test.txt");
+  std::string s;
+  getline(file,s);
+  ASSERT_EQ("4\r",s);
   file.close();
 }
 
