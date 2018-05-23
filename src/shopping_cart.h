@@ -33,14 +33,13 @@ public:
     _numberOfItems++;
     for(int i=0;i<_numberOfItems;i++){
       if(_bs[i].title() == k.title()){
+        _numberOfItems--;
         std::string error("You have already put this book into shoppingcart");
         throw error;
-      }
-      else{
-        _bs[_numberOfItems] = k;
         break;
       }
     }
+    _bs[_numberOfItems-1] = k;
   }
 
   void del(Book const &k){
