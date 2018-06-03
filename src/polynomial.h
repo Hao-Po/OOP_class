@@ -2,6 +2,7 @@
 #define POLYNOMIAL_H
 #include "./term.h"
 #include <algorithm>
+
 class Polynomial {
 public:
   Polynomial(Term * const ts ,int ts_size ,int degree){

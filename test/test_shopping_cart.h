@@ -1,5 +1,5 @@
-#ifndef TEST_SHOPPING_CART
-#define TEST_SHOPPING_CART
+#ifndef TEST_SHOPPING_CART_H
+#define TEST_SHOPPING_CART_H
 #include "../src/book.h"
 #include "../src/shopping_cart.h"
 TEST (ShoppingCart, add) {

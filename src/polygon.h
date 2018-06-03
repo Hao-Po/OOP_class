@@ -3,7 +3,8 @@
 #include "./dot.h"
 #include "./vector.h"
 #include "./bubblesort.h"
-class Polygon{
+#include "./shape.h"
+class Polygon: public Shape{
 public:
   Polygon(Vector vertices [], int numberOfVertices){
     _numberOfVertices = numberOfVertices;
