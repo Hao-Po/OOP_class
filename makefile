@@ -1,23 +1,25 @@
 .PHONY: directories clean
+CC=g++
+CFLAGS=-std=c++11
+LIBS=-lgtest -lpthread
+OBJ=obj
+BIN=bin
+SRC=src
+TEST=test
 
-all: directories bin/ut_all
+all: directories $(BIN)/ut_all
 
-bin/ut_all: obj/ut_main.o
-	g++ -std=c++11 -o bin/ut_all obj/ut_main.o -lgtest -lpthread
-
-obj/ut_main.o: \
-	test/ut_main.cpp test/test_dot.h test/test_string.h test/test_vector.h \
-	test/test_polygon.h test/test_fraction.h test/test_term.h test/test_polynomial.h \
-	test/test_mainfunction.h test/test_template.h test/test_bubblesort.h \
-	src/term.h src/polynomial.h src/vector_io.h src/vector.h src/gcd.h src/fraction.h \
-	src/polygon.h src/template.h  src/bubblesort.h src/dot.h
-	g++ -std=c++11 -c test/ut_main.cpp -o obj/ut_main.o
+$(BIN)/ut_all: $(OBJ)/ut_main.o
+	$(CC) $(CFLAGS) -o $@ $(OBJ)/ut_main.o $(LIBS)
+$(OBJ)/ut_main.o: $(TEST)/ut_main.cpp \
+				$(SRC)/book.h $(SRC)/shopping_cart.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 directories:
 	mkdir -p bin obj
 
 clean:
-	rm -rf obj/*.o bin/*
+	rm -rf $(OBJ) $(BIN)
 
 stat:
-	wc src/*.h src/*.cpp test/*.h test/*.cpp
+	wc $(SRC)/*.h $(SRC)/*.cpp $(TEST)/*.h $(TEST)/*.cpp
