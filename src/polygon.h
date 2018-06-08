@@ -6,22 +6,19 @@
 #include "./shape.h"
 class Polygon: public Shape{
 public:
-  Polygon(Vector vertices [], int numberOfVertices){
-    _numberOfVertices = numberOfVertices;
-    _vertices = new Vector [_numberOfVertices];
-    for(int i=0;i<_numberOfVertices;i++){
-      _vertices[i] = vertices[i];
-    }
-  }
+  // Polygon(Vector vertices [], int numberOfVertices) :
+  //   _numberOfVertices(numberOfVertices),
+  //   _vertices(new Vector[numberOfVertices]){
+  //   for(int i=0;i<_numberOfVertices;i++){
+  //     _vertices[i] = vertices[i];
+  //   }
+  // }
 
-  Polygon(){
-    _numberOfVertices = -1;
-    _vertices = nullptr;
-  }
+  Polygon() : _numberOfVertices(-1),_vertices(nullptr){}
 
-  Polygon(Polygon const &p){
-    _numberOfVertices = p._numberOfVertices;
-    _vertices = new Vector [_numberOfVertices];
+  Polygon(Polygon const &p) :
+    _numberOfVertices(p._numberOfVertices),
+    _vertices(new Vector[p._numberOfVertices]){
     for(int i=0;i<_numberOfVertices;i++){
       _vertices[i] = p._vertices[i];
     }
@@ -31,7 +28,7 @@ public:
     delete [] _vertices;
   }//destructor
 
-  Vector vertex(int index){
+  Vector vertex(int index) const{
     return _vertices[index-1];
   }
 
@@ -47,7 +44,7 @@ public:
     return *this;
   }
 
-  double area(){
+  double area() const{
     double arc=0;
     for(int i=0;i<_numberOfVertices-2;i++){
       arc += triangleArea(_vertices[0],_vertices[i+1],_vertices[i+2]);
@@ -55,7 +52,7 @@ public:
     return arc;
   }
 
-  double length(){
+  double length() const{
     double len=0;
     for(int i=1;i<_numberOfVertices;i++){
       len += (vertex(i+1)-vertex(i)).length();

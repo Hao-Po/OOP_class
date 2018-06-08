@@ -14,5 +14,8 @@ int main( int argc , char **argv )
     ReadMatrix(matrix,m,n);
     double * value = EigenValue(matrix);
     RREF(matrix,m,n);
+
+
+
     PrintMatrix(matrix,m,n);
 }

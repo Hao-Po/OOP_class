@@ -81,6 +81,7 @@ void RREF(double **matrix, int m, int n){
       matrix[i][y] /= matrix[i][j];
     }
   }/*scaling*/
+
 }
 
 
