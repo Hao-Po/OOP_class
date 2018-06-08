@@ -4,16 +4,13 @@
 #include "./shape.h"
 class Circle: public Shape{
 public:
-  Circle(Vector &o,double r){
-    _o = o;
-    _r = r;
-  }
+  Circle(Vector &o,double r) : _o(o),_r(r){}
 
-  double area(){
+  double area() const{
     return M_PI*_r*_r;
   }
 
-  double length(){
+  double length() const{
     return 2*M_PI*_r;
   }
 
