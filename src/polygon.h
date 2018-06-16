@@ -6,13 +6,13 @@
 #include "./shape.h"
 class Polygon: public Shape{
 public:
-  // Polygon(Vector vertices [], int numberOfVertices) :
-  //   _numberOfVertices(numberOfVertices),
-  //   _vertices(new Vector[numberOfVertices]){
-  //   for(int i=0;i<_numberOfVertices;i++){
-  //     _vertices[i] = vertices[i];
-  //   }
-  // }
+  Polygon(Vector vertices [], int numberOfVertices) :
+    _numberOfVertices(numberOfVertices),
+    _vertices(new Vector[numberOfVertices]){
+    for(int i=0;i<_numberOfVertices;i++){
+      _vertices[i] = vertices[i];
+    }
+  }
 
   Polygon() : _numberOfVertices(-1),_vertices(nullptr){}
 
@@ -66,12 +66,12 @@ private:
   int _numberOfVertices;
 };
 
-Polygon createPolygon(Vector vertices[],int size){
+Polygon * createPolygon(Vector vertices[],int size){
   Vector O = centroid(vertices,size);
   Vector R = vertices[0] - O;
   bubbleSort(vertices,vertices+size,
     [&](Vector u,Vector v){return angle(R,u-O)>angle(R,v-O);}
   );
-  return Polygon (vertices,size);
+  return  new Polygon (vertices,size);
 }
 #endif

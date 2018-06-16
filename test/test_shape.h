@@ -4,6 +4,8 @@
 #include "../src/shape.h"
 #include "../src/circle.h"
 #include "../src/polygon.h"
+#include "../src/square.h"
+#include "../src/combo.h"
 TEST (ShapeTest, CircleArea) {
   double r = 3;
   double a[] = {0,0};
@@ -55,6 +57,35 @@ TEST(ShapeTest, SortingArrayArea){
   ASSERT_EQ(SmallCircle,s[1]);
   ASSERT_EQ(BigSquare,s[2]);
   ASSERT_EQ(BigCircle,s[3]);
+}
+
+TEST(ShapeTest, Factory){
+  Circle *c = Circle::create(1,-1,1);
+  ASSERT_EQ(M_PI,c->area());
+}
+
+TEST(ShapeTest, Car){
+  Circle *c1 = Circle::create(1,-1,1);
+  Circle *c2 = Circle::create(3,-1,1);
+  double a[] = {0,0};
+  double b[] = {4,0};
+  double c[] = {4,2};
+  double d[] = {0,2};
+  Vector vertices[] = {Vector(a,2), Vector(b,2), Vector(c,2), Vector(d,2)};
+  Polygon *p = createPolygon(vertices,4);
+  Square *s = new Square(2);
+  Combo combo;
+  combo.add(c1);
+  combo.add(c2);
+  combo.add(p);
+  combo.add(s);
+  ASSERT_EQ(2 * M_PI + 12,combo.area());
+  ASSERT_EQ(4 * M_PI + 20,combo.length());
+  combo.remove(c1);
+  ASSERT_EQ(M_PI + 12,combo.area());
+  ASSERT_EQ(2 * M_PI + 20,combo.length());
+  ASSERT_ANY_THROW(combo.remove(c1));
+
 }
 
 #endif

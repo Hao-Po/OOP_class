@@ -2,8 +2,15 @@
 #define CIRCLE_H
 #include <cmath>
 #include "./shape.h"
+#include "./vector.h"
 class Circle: public Shape{
 public:
+  static Circle * create(double x, double y, double r){
+    double o[] = {x,y};
+    Vector v(o,2);
+    return new Circle (v,r);
+  }
+
   Circle(Vector &o,double r) : _o(o),_r(r){}
 
   double area() const{
