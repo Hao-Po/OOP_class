@@ -30,7 +30,8 @@ void setSvgShapeStyle(SvgShape *shape, double strokeWidth, std::string strokeCol
 }
 
 std::string makeSvgOutput(int width, int height, std::vector<SvgShape *> const & shape){
-  std::string s = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"" + std::to_string(width)  + "\" height=\"" + std::to_string(height) + "\" viewBox=\"0 0 100 100\">";
+  std::string s = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"" +
+  std::to_string(width)  + "\" height=\"" + std::to_string(height) + "\" viewBox=\"0 0 100 100\">";
   for(int i=0;i!=shape.size();i++){
     s += shape[i]->toSVG();
   }
