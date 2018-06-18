@@ -8,12 +8,6 @@ public:
     _fillColor = "black";
   }
 
-  SvgShape(double strokeWidth){
-    _strokeWidth = strokeWidth;
-    _strokeColor = "black";
-    _fillColor = "black";
-  }
-
   void setFillColor(std::string fillColor){
     _fillColor = fillColor;
   }
