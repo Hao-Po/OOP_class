@@ -19,9 +19,10 @@ public:
 
   virtual std::string toSVG() const = 0;
 
-std::string _fillColor;
-std::string _strokeColor;
-double _strokeWidth;
+protected:
+  std::string _fillColor;
+  std::string _strokeColor;
+  double _strokeWidth;
 };
 
 void setSvgShapeStyle(SvgShape *shape, double strokeWidth, std::string strokeColor, std::string fillColor){
