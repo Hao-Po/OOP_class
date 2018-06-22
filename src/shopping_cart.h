@@ -27,17 +27,14 @@ public:
   }
 
   void del(Book const &k){
-    auto it=_bs.begin();
-    for(;it!=_bs.end();it++){
+    for(auto it=_bs.begin();it!=_bs.end();it++){
       if(it->second.title() == k.title()){
         _bs.erase(it);
-        break;
+        return;
       }
     }
-    if(it == _bs.end()){
-      std::string error("You dont have this book in the shhoppingcart.");
-      throw error;
-    }
+    std::string error("You dont have this book in the shhoppingcart.");
+    throw error;
   }
 
   int numberOfItems() const{
