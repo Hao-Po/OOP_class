@@ -1,73 +1,53 @@
 #ifndef SHOPPING_CART_H
 #define SHOPPING_CART_H
-#define MaxOfShoppingCart 50
 #include "./book.h"
+#include <map>
+using namespace std;
+
 class ShoppingCart{
 public:
   ShoppingCart(){
     _numberOfItems = 0;
-    _bs = new Book [MaxOfShoppingCart];
-    for(int i=0;i<MaxOfShoppingCart;i++){
-      _bs[i] = Book("","",0);
-    }
   }
 
-  ShoppingCart(Book const *bs, int numberOfItems){
-    _numberOfItems = numberOfItems;
-    _bs = new Book [_numberOfItems];
+  ShoppingCart(Book const *bs, int numberOfItems) : _numberOfItems(numberOfItems){
     for(int i=0;i<_numberOfItems;i++){
       _bs[i] = bs[i];
     }
   }
 
-  ShoppingCart(ShoppingCart const &sc){
-    _numberOfItems = sc._numberOfItems;
-    _bs = new Book [sc._numberOfItems];
-    for(int i=0;i<_numberOfItems;i++){
-      _bs[i] = sc._bs[i];
-    }
-  }
-
-  ~ShoppingCart(){
-    delete [] _bs;
-  }
-
   void add(Book const &k){
-    _numberOfItems++;
-    for(int i=0;i<_numberOfItems;i++){
-      if(_bs[i] == k){
-        _numberOfItems--;
+    for(auto it=_bs.begin();it!=_bs.end();it++){
+      if(it->second.title() == k.title()){
         std::string error("You have already put this book into shoppingcart");
         throw error;
       }
     }
-    _bs[_numberOfItems-1] = k;
+    _bs.insert(pair<int,Book>(_bs.size(),k)) ;
   }
 
   void del(Book const &k){
-    int i;
-    for(i=0;i<MaxOfShoppingCart;i++){
-      if(_bs[i].title() == k.title()){
-        _numberOfItems--;
-        Book temp("","",0);
-        _bs[i] = temp;
+    auto it=_bs.begin();
+    for(;it!=_bs.end();it++){
+      if(it->second.title() == k.title()){
+        _bs.erase(it);
         break;
       }
     }
-    if(i == MaxOfShoppingCart){
+    if(it == _bs.end()){
       std::string error("You dont have this book in the shhoppingcart.");
       throw error;
     }
   }
 
   int numberOfItems() const{
-    return _numberOfItems;
+    return _bs.size();
   }
 
   Book getBookByTitle(std::string const &s){
-    for(int i=0;i<MaxOfShoppingCart;i++){
-      if(_bs[i].title() == s){
-        return _bs[i];
+    for(auto it=_bs.begin();it!=_bs.end();it++){
+      if(it->second.title() == s){
+        return it->second;
       }
     }
     std::string error("You dont have this book in the shhoppingcart.");
@@ -75,15 +55,14 @@ public:
   }
 
   int totalOfPrice(){
-    int totalPrice=0;
-    for(int i=0;i<=_numberOfItems;i++){
-      totalPrice += _bs[i].price();
+    double result = 0;
+    for(auto it=_bs.begin();it!=_bs.end();it++){
+      result += it->second.price();
     }
-    return totalPrice;
+    return result;
   }
-
 private:
-  Book * _bs;
+  map<int,Book> _bs;
   int _numberOfItems;
 };
 #endif
