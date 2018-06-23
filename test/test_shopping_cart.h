@@ -2,6 +2,7 @@
 #define TEST_SHOPPING_CART_H
 #include "../src/book.h"
 #include "../src/shopping_cart.h"
+// #include "../src/shopping_cart2.h"
 TEST (ShoppingCart, add) {
     ShoppingCart sc;
     Book k1("Object-Oriented Programming", "Patrick", 1108);
