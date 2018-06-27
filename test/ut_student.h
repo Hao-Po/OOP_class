@@ -38,18 +38,18 @@ TEST (CourseTest, addStudent) {
   // insert a map entry {"Object-oriented Programming", -1}
   // ASSERT_EQ(-1, s001->getScore("Object-oriented Programming"));
 }
-//
-// TEST (CourseTest, addMultiStudents) {
-//   Student * s002 = new Undergrad("U2018EECS002", "Mary");
-//   Student * s003 = new Undergrad("U2018EECS003", "Nick");
-//   Student * g001 = new Grad("G2018CSIE001", "Mike");
-//   Student * g002 = new Grad("G2018CSIE002", "Jane");
-//   Course * oop = new Course ("EECS201", "Object-oriented Programming");
-//
-//   // adding two students
-//   Student * twoStudents[]={s002, s003};
-//   oop->add(twoStudents, twoStudents+2);
-//   ASSERT_EQ(2, oop->size());
+
+TEST (CourseTest, addMultiStudents) {
+  Student * s002 = new Undergrad("U2018EECS002", "Mary");
+  Student * s003 = new Undergrad("U2018EECS003", "Nick");
+  Student * g001 = new Grad("G2018CSIE001", "Mike");
+  Student * g002 = new Grad("G2018CSIE002", "Jane");
+  Course * oop = new Course ("EECS201", "Object-oriented Programming");
+
+  // adding two students
+  Student * twoStudents[]={s002, s003};
+  oop->add(twoStudents, twoStudents+2);
+  ASSERT_EQ(2, oop->size());
 //   ASSERT_EQ(-1, s002->getScore("Object-oriented Programming"));
 //   ASSERT_EQ(-1, s003->getScore("Object-oriented Programming"));
 //
@@ -59,28 +59,28 @@ TEST (CourseTest, addStudent) {
 //   ASSERT_EQ(4, oop->size());
 //   ASSERT_EQ(-1, g001->getScore("Object-oriented Programming"));
 //   ASSERT_EQ(-1, g002->getScore("Object-oriented Programming"));
-// }
-//
-TEST (CourseTest, getStudentsByNameInc) {
-  // Test data
-  Student * s001 = new Undergrad("U2018EECS001", "John");
-  Student * s002 = new Undergrad("U2018EECS002", "Mary");
-  Student * s003 = new Undergrad("U2018EECS003", "Nick");
-  Student * g001 = new Grad("G2018CSIE001", "Mike");
-  Student * g002 = new Grad("G2018CSIE002", "Jane");
-  Course * oop = new Course ("EECS201", "Object-oriented Programming");
-
-  Student * Students[]={s001, s002, s003, g001, g002};
-  oop->add(Students, Students+5);
-
-  // get students by names in increasing alphabetical order
-  std::vector<Student *> namesAlphabeticalInc = oop->getStudentsByNameInc();
-  ASSERT_EQ("Jane", namesAlphabeticalInc[0]->name());
-  ASSERT_EQ("John", namesAlphabeticalInc[1]->name());
-  ASSERT_EQ("Mary", namesAlphabeticalInc[2]->name());
-  ASSERT_EQ("Mike", namesAlphabeticalInc[3]->name());
-  ASSERT_EQ("Nick", namesAlphabeticalInc[4]->name());
 }
+//
+// TEST (CourseTest, getStudentsByNameInc) {
+//   // Test data
+//   Student * s001 = new Undergrad("U2018EECS001", "John");
+//   Student * s002 = new Undergrad("U2018EECS002", "Mary");
+//   Student * s003 = new Undergrad("U2018EECS003", "Nick");
+//   Student * g001 = new Grad("G2018CSIE001", "Mike");
+//   Student * g002 = new Grad("G2018CSIE002", "Jane");
+//   Course * oop = new Course ("EECS201", "Object-oriented Programming");
+//
+//   Student * Students[]={s001, s002, s003, g001, g002};
+//   oop->add(Students, Students+5);
+//
+//   // get students by names in increasing alphabetical order
+//   std::vector<Student *> namesAlphabeticalInc = oop->getStudentsByNameInc();
+//   ASSERT_EQ("Jane", namesAlphabeticalInc[0]->name());
+//   ASSERT_EQ("John", namesAlphabeticalInc[1]->name());
+//   ASSERT_EQ("Mary", namesAlphabeticalInc[2]->name());
+//   ASSERT_EQ("Mike", namesAlphabeticalInc[3]->name());
+//   ASSERT_EQ("Nick", namesAlphabeticalInc[4]->name());
+// }
 //
 // TEST (CourseTest, SetScore) {
 //   // Test data

@@ -24,6 +24,7 @@ public:
 
   template<typename Autotype>
   void add(Autotype *a, Autotype *b){
+    int n = b-a;
     for(auto it=a;it!=b;it++){
       _student.push_back(*it);
     }
