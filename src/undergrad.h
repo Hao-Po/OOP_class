@@ -16,13 +16,11 @@ public:
     return _id;
   }
 
-  // double getScore(std::string s){
-  //
-  // }
-
+int _score;
 private:
   std::string _id;
   std::string _name;
+
 };
 
 class Grad : public Student{
@@ -38,6 +36,7 @@ public:
     return _id;
   }
 
+int _score;
 private:
   std::string _id;
   std::string _name;

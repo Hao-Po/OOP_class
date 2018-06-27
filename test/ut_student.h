@@ -61,28 +61,7 @@ TEST (CourseTest, addStudent) {
 //   ASSERT_EQ(-1, g002->getScore("Object-oriented Programming"));
 // }
 //
-// TEST (CourseTest, getStudentsByNameInc) {
-//   // Test data
-//   Student * s001 = new Undergrad("U2018EECS001", "John");
-//   Student * s002 = new Undergrad("U2018EECS002", "Mary");
-//   Student * s003 = new Undergrad("U2018EECS003", "Nick");
-//   Student * g001 = new Grad("G2018CSIE001", "Mike");
-//   Student * g002 = new Grad("G2018CSIE002", "Jane");
-//   Course * oop = new Course ("EECS201", "Object-oriented Programming");
-//
-//   Student * Students[]={s001, s002, s003, g001, g002};
-//   oop->add(Students, Students+5);
-//
-//   // get students by names in increasing alphabetical order
-//   std::vector<Student *> namesAlphabeticalInc = oop->getStudentsByNameInc();
-//   ASSERT_EQ("Jane", namesAlphabeticalInc[0]->name());
-//   ASSERT_EQ("John", namesAlphabeticalInc[1]->name());
-//   ASSERT_EQ("Mary", namesAlphabeticalInc[2]->name());
-//   ASSERT_EQ("Mike", namesAlphabeticalInc[3]->name());
-//   ASSERT_EQ("Nick", namesAlphabeticalInc[4]->name());
-// }
-//
-TEST (CourseTest, SetScore) {
+TEST (CourseTest, getStudentsByNameInc) {
   // Test data
   Student * s001 = new Undergrad("U2018EECS001", "John");
   Student * s002 = new Undergrad("U2018EECS002", "Mary");
@@ -94,18 +73,39 @@ TEST (CourseTest, SetScore) {
   Student * Students[]={s001, s002, s003, g001, g002};
   oop->add(Students, Students+5);
 
-
-  // set scores of students in oop course
-
-  // these are the students
-  std::vector<std::string> ids = {"U2018EECS001","U2018EECS002", "U2018EECS003", "G2018CSIE001", "G2018CSIE002"};
-  // these are their corresponding scores
-  std::vector<int> scores = {90, 50, 85, 68, 90};
-
-  // setting scores of students
-  // hint: use find_if to search the students with ID
-  // once you find it, call setScore on the student found
-  oop->setScores(ids, scores);
+  // get students by names in increasing alphabetical order
+  std::vector<Student *> namesAlphabeticalInc = oop->getStudentsByNameInc();
+  ASSERT_EQ("Jane", namesAlphabeticalInc[0]->name());
+  ASSERT_EQ("John", namesAlphabeticalInc[1]->name());
+  ASSERT_EQ("Mary", namesAlphabeticalInc[2]->name());
+  ASSERT_EQ("Mike", namesAlphabeticalInc[3]->name());
+  ASSERT_EQ("Nick", namesAlphabeticalInc[4]->name());
+}
+//
+// TEST (CourseTest, SetScore) {
+//   // Test data
+//   Student * s001 = new Undergrad("U2018EECS001", "John");
+//   Student * s002 = new Undergrad("U2018EECS002", "Mary");
+//   Student * s003 = new Undergrad("U2018EECS003", "Nick");
+//   Student * g001 = new Grad("G2018CSIE001", "Mike");
+//   Student * g002 = new Grad("G2018CSIE002", "Jane");
+//   Course * oop = new Course ("EECS201", "Object-oriented Programming");
+//
+//   Student * Students[]={s001, s002, s003, g001, g002};
+//   oop->add(Students, Students+5);
+//
+//
+//   // set scores of students in oop course
+//
+//   // these are the students
+//   std::vector<std::string> ids = {"U2018EECS001","U2018EECS002", "U2018EECS003", "G2018CSIE001", "G2018CSIE002"};
+//   // these are their corresponding scores
+//   std::vector<int> scores = {90, 50, 85, 68, 90};
+//
+//   // setting scores of students
+//   // hint: use find_if to search the students with ID
+//   // once you find it, call setScore on the student found
+//   oop->setScores(ids, scores);
 
   // expect each student to get his/her oop score
   // ASSERT_EQ(90, s001->getScore(oop->name()));
@@ -113,7 +113,7 @@ TEST (CourseTest, SetScore) {
   // ASSERT_EQ(85, s003->getScore(oop->name()));
   // ASSERT_EQ(68, g001->getScore(oop->name()));
   // ASSERT_EQ(90, g002->getScore(oop->name()));
-}
+// }
 
 // TEST (CourseTest, failedStudents) {
 //   // Test data

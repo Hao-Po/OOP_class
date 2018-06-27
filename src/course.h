@@ -1,6 +1,7 @@
 #ifndef COURSE_H
 #define COURSE_H
 #include "undergrad.h"
+#include <algorithm>
 #include <vector>
 #include <map>
 class Course{
@@ -21,21 +22,26 @@ public:
     _student.push_back(s);
   }
 
+  template<typename Autotype>
+  void add(Autotype *a, Autotype *b){
+    for(auto it=a;it!=b;it++){
+      _student.push_back(*it);
+    }
+  }
+
   double size(){
     return _student.size();
   }
 
-  void setScore(std::string *courseName, int *score){
-    auto it2=score->begin();
-    for(auto it=courseName->begin();it!=courseName->end();it++,it2++){
-      _cn[it] = it2;
-    }
+  std::vector<Student *> getStudentsByNameInc(){
+    return _student;
   }
+
 
 private:
   std::string _id;
   std::string _name;
   std::vector<Student*> _student;
-  std::map<std::string, Student *> _cn;
+  std::map<std::string, int> _cn;
 };
 #endif
