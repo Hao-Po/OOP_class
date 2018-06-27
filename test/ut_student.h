@@ -81,7 +81,7 @@ TEST (CourseTest, getStudentsByNameInc) {
   ASSERT_EQ("Mike", namesAlphabeticalInc[3]->name());
   ASSERT_EQ("Nick", namesAlphabeticalInc[4]->name());
 }
-//
+
 // TEST (CourseTest, SetScore) {
 //   // Test data
 //   Student * s001 = new Undergrad("U2018EECS001", "John");

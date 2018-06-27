@@ -41,6 +41,16 @@ public:
     return _student;
   }
 
+  // void setScores(std::string *ids, int *scores){
+  //   for(int i=0;i<ids->size();i++){
+  //     for(int j=0;j<_student.size();j++){
+  //       if(ids[i] == _student[j]->id()){
+  //         _student[j]->Student::setScore(scores[i]);
+  //       }
+  //     }
+  //   }
+  // }
+
 
 private:
   std::string _id;
