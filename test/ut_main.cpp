@@ -1,8 +1,10 @@
 #include <gtest/gtest.h>
-#include "test_svg_shape.h"
+
+
+#include "ut_student.h"
 
 int main( int argc , char **argv )
 {
-    testing :: InitGoogleTest( &argc , argv ) ;
+    testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS( ) ;
 }
