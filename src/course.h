@@ -25,6 +25,9 @@ public:
   template<typename Autotype>
   void add(Autotype *a, Autotype *b){
     int n = b-a;
+    std::sort(a,b,
+      [&](Student *a,Student *b){return a->name()<b->name();}
+    );
     for(auto it=a;it!=b;it++){
       _student.push_back(*it);
     }
